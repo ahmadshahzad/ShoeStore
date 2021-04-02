@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <string name="email_text">Email</string>
+    <string name="password_text">Password</string>
+    <string name="login_text">Login</string>
+    <string name="register_text">Register</string>
+    <string name="add_button">Add button</string>
+    <string name="shoe_name">Shoe Name: %s</string>
+    <string name="shoe_name_text">Shoe Name</string>
+    <string name="company_name_text">Company Name</string>
+    <string name="company_name">Company Name: %s</string>
+    <string name="logout">Logout</string>
+    <string name="shoe_size">Shoe size: %.0f</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="shoe_size_text">Shoe Size</string>
+    <string name="shoe_description_text">Shoe Description</string>
+    <string name="shoe_description">Shoe Description: %s</string>
+    <string name="home_screen_title">Welcome to the home screen of Shoe store App!</string>
+    <string name="instructions_text">Instructions</string>
+    <string name="home_screen_body">Welcome to the screen body text! Welcome to the screen body text! Welcome to the screen body text! Welcome to the screen body text!</string>
+    <string name="instructions_screen_title">Welcome to the instructions screen!</string>
+    <string name="shoe_list">Shoe List</string>
+    <string name="instructions_screen_body">Welcome to the instructions screen body text!Welcome to the instructions screen body text! Welcome to the instructions screen body text! Welcome to the instructions screen body text!</string>
 </resources>
