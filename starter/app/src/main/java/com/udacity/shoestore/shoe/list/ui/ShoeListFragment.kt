@@ -2,15 +2,16 @@ package com.udacity.shoestore.shoe.list.ui
 
 import android.graphics.Typeface
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.StyleRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.shoe.model.Shoe
@@ -27,6 +28,7 @@ class ShoeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentShoeListBinding.inflate(inflater, container, false)
+        setHasOptionsMenu(true)
         binding.floatingButton.setOnClickListener(
             Navigation.createNavigateOnClickListener(
                 ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
@@ -42,6 +44,21 @@ class ShoeListFragment : Fragment() {
                 addShoe(shoe)
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.main_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.loginFragment -> viewModel.resetShoeList()
+        }
+        return NavigationUI.onNavDestinationSelected(
+            item,
+            requireView().findNavController()
+        ) || super.onOptionsItemSelected(item)
     }
 
     private fun addShoe(shoe: Shoe) {

@@ -4,6 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".login.ui.LoginFragment">
 
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.udacity.shoestore.shoe.detail.ui.ShoeDetailFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.udacity.shoestore.shoe.detail.viewmodel.ShoeDetailViewModel" />
+    </data>
+
+    <!--    Here I am using Constraint layout because this screen is fairly complex and I want to align all the EditText views based on the height of biggest label. For which I think if I use Linearlayout I have to use a separate Linearlayout for labels and textfields.-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loginConstraint"
         android:layout_width="match_parent"
@@ -83,6 +95,7 @@
             android:hint="@string/shoe_name_text"
             android:importantForAutofill="no"
             android:inputType="text"
+            android:text="@={viewModel.shoeName}"
             app:layout_constraintBaseline_toBaselineOf="@+id/nameLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/barrier" />
@@ -97,6 +110,7 @@
             android:ems="10"
             android:hint="@string/company_name_text"
             android:inputType="text"
+            android:text="@={viewModel.companyName}"
             app:layout_constraintBaseline_toBaselineOf="@+id/companyLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/barrier" />
@@ -111,6 +125,7 @@
             android:ems="10"
             android:hint="@string/shoe_size_text"
             android:inputType="number"
+            app:bindingText="@={viewModel.size}"
             app:layout_constraintBaseline_toBaselineOf="@+id/sizeLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/barrier" />
@@ -125,6 +140,7 @@
             android:ems="10"
             android:hint="@string/shoe_description_text"
             android:inputType="text"
+            android:text="@={viewModel.description}"
             app:layout_constraintBaseline_toBaselineOf="@+id/descriptionLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/barrier" />
@@ -138,6 +154,7 @@
             android:layout_marginTop="@dimen/layout_margin_4x"
             android:layout_marginEnd="@dimen/layout_margin_2x"
             android:fontFamily="@font/roboto"
+            android:onClick="@{(view) -> fragment.saveItem(view)}"
             android:text="@string/save"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -151,6 +168,7 @@
             android:layout_marginTop="@dimen/layout_margin_2x"
             android:layout_marginEnd="@dimen/layout_margin_2x"
             android:fontFamily="@font/roboto"
+            android:onClick="@{(view) -> fragment.navigateUp(view)}"
             android:text="@string/cancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

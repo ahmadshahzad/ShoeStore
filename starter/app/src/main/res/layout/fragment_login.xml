@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".login.ui.LoginFragment">
 
+<!--    Here I am using Constraint layout because this screen is fairly complex and I want to align all the EditText views based on the height of biggest label. For which I think if I use Linearlayout I have to use a separate Linearlayout for labels and textfields.-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loginConstraint"
         android:layout_width="match_parent"
